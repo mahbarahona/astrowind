@@ -91,7 +91,7 @@ const details = {
     {
       title: 'Módulos',
       description: `
-           <ol class="text-slate-400 ml-4 list-decimal text-xl">
+           <ol class=" text-muted dark:text-slate-400  ml-4 list-decimal  ">
            <li> Internet y Navegadores</li>
            <li> HTML</li>
            <li> CSS</li>
@@ -177,7 +177,6 @@ const faq = {
   <Fragment slot="header">
     <Header {...headerData} actions={[]} isSticky />
   </Fragment>
-
   <Hero2 tagline={hero.tagline} actions={hero.actions} image={hero.image}>
     <Fragment slot="title">{hero.title}</Fragment>
     <Fragment slot="subtitle">
@@ -187,7 +186,6 @@ const faq = {
       Seamlessly blend the power of Astro 5.0 and Tailwind CSS to craft websites that resonate with your brand and audience.
     </Fragment>
   </Hero2>
-
   <Features id={why.id} title={why.title} subtitle={why.subtitle} columns={why.columns} items={why.items} />
   <Content title={details.title} subtitle={details.subtitle} items={details.items} image={details.image} />
   <Pricing title={pricing.title} prices={pricing.prices} />
