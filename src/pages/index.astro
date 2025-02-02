@@ -4,59 +4,182 @@ import Layout from '~/layouts/PageLayout.astro';
 import Header from '~/components/widgets/Header.astro';
 import Hero2 from '~/components/widgets/Hero2.astro';
 import Features from '~/components/widgets/Features.astro';
-import Steps2 from '~/components/widgets/Steps2.astro';
 import Content from '~/components/widgets/Content.astro';
 import Pricing from '~/components/widgets/Pricing.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+// import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 
 import { headerData } from '~/navigation';
-import FAQs from '~/components/widgets/FAQs.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
-// import Brands from '~/components/widgets/Brands.astro';
+import type { CallToAction } from '~/types';
+
+type HeroType = {
+  title: string;
+  tagline: string;
+  description: string;
+  actions: CallToAction[];
+  image: { src: string; alt: string };
+};
 
 const metadata = {
-  title: 'Aprende Angular',
+  title: 'UX Coder',
+};
+const hero: HeroType = {
+  title: 'Programación para Diseñadores UX',
+  tagline: 'Curso especializado',
+  description: 'Curso especializado',
+  actions: [{ variant: 'primary', text: 'Ver detalles', href: '#features' }],
+  image: {
+    src: '~/assets/images/8.jpeg',
+    alt: '',
+  },
+};
+const why = {
+  id: 'features',
+  title: 'La opción inteligente',
+  subtitle: '',
+  columns: 2,
+  items: [
+    {
+      title: 'Orientado al Trabajo',
+      description: `Using Astro 5.0 ensures fast loading and seamless rendering, enhancing browsing. The code follows best practices, improving user experience, SEO, and reducing bounce rates.`,
+      icon: 'tabler:rocket',
+    },
+    {
+      title: 'Enseñamos Experiencia',
+      description:
+        'With intuitive customization, easily showcase portfolio pieces, case studies, project highlights, and relevant content. Ideal for creative professionals and businesses looking to highlight their expertise.',
+      icon: 'tabler:writing',
+    },
+    {
+      title: '100% Online En vivo',
+      description:
+        'Offers a powerful combination that enhances both the development process and the end-user experience. Also, allows to build dynamic and visually stunning websites with optimized performance.',
+      icon: 'tabler:layers-union',
+    },
+    {
+      title: 'No hacemos Pokedex',
+      description: `Easily customize AstroWind to harmonize with the unique branding and identity of your venture. AstroWind's versatile design adapts to suit your needs.`,
+      icon: 'tabler:artboard',
+    },
+    {
+      title: 'Intensivo de verdad',
+      description: `Landing pages are strategically designed to captivate visitors and prompt specific actions. Additionally, the blog creation feature empowers sharing insights, engaging the audience.`,
+      icon: 'tabler:podium',
+    },
+
+    // {
+    //   title: 'No cobramos matrícula',
+    //   description: `Follows SEO best practices with clean code, semantic HTML markup, and fast loading, enhancing search engine rankings. AstroWind's SEO structure ensures visibility to potential customers and clients.`,
+    //   icon: 'tabler:eyeglass',
+    // },
+  ],
+};
+const details = {
+  title: 'Programación para Diseñadores UX',
+  subtitle:
+    'Discover how AstroWinds versatile template serves as the ideal solution for various use cases, providing tailored solutions to drive success.',
+  items: [
+    {
+      title: '¿Que vas a aprender?',
+      description: `Comprende como fue pensando Angular y como utilizar las herramientas que ofrece`,
+    },
+    {
+      title: '¿A quien está dirigido?',
+      description: 'Identifica, gestiona y diseña las capas de una aplicación frontend.',
+      // icon: 'tabler:alert-triangle',
+    },
+    {
+      title: 'Módulos',
+      description: `
+           <ol class="text-slate-400 ml-4 list-decimal text-xl">
+           <li> Internet y Navegadores</li>
+           <li> HTML</li>
+           <li> CSS</li>
+           <li> Javascript</li>
+           <li> Animaciones</li>
+           <li> Responsividad</li>
+           <li> Accesibilidad</li>
+           <li> Debugging</li>
+           <li> Deploy</li>
+           <li> Herramientas de trabajo</li>
+           <li> Nivelación Laboral</li>
+           <li> Frameworks</li>
+          </ol>
+          `,
+    },
+  ],
+  image: {
+    src: '~/assets/images/11.jpeg',
+    alt: 'Startup Image',
+  },
+};
+const pricing = {
+  title: 'Precio',
+  prices: [
+    {
+      title: 'Pro',
+      subtitle: ' ',
+      price: '399.000',
+      period: '12 semanas',
+      callToAction: {
+        target: '_blank',
+        text: 'Inscribirme',
+        href: '#',
+      },
+      hasRibbon: true,
+      ribbonTitle: '',
+    },
+  ],
+};
+const faq = {
+  title: 'Preguntas comunes',
+  items: [
+    {
+      title: '¿ Cuando empieza ?',
+      description: 'Lunes 3 de Marzo.',
+      icon: 'tabler:chevrons-right',
+    },
+    {
+      title: '¿ Cuánto dura?',
+      description: `12 semanas, 3 meses aproximado.`,
+      icon: 'tabler:chevrons-right',
+    },
+    {
+      title: '¿ Cuántos dias a la semana?',
+      description: '4 días a la semana: Lunes, Martes, Miercoles y Jueves.',
+      icon: 'tabler:chevrons-right',
+    },
+    {
+      title: '¿ Cuál es el horario?',
+      description: 'El horario es de 19:00 a 22:00 (3 horas).',
+      icon: 'tabler:chevrons-right',
+    },
+    {
+      title: '¿Cuál es la modalidad?',
+      description: `Clases En vivo 100% Online.`,
+      icon: 'tabler:chevrons-right',
+    },
+    {
+      title: '¿ Quién me va a enseñar?',
+      description: `Certainly! AstroWind is versatile and can be used for a wide range of projects, including both personal and commercial endeavors. Whether you're building a professional portfolio, launching a startup, or creating a marketing website, AstroWind has you covered.`,
+      icon: 'tabler:chevrons-right',
+    },
+    {
+      title: '¿Cuales son los medios de pago?',
+      description: `Absolutely, our dedicated customer support team is here to assist you with any questions or challenges you may encounter. Feel free to reach out to us through our support channels, and we'll be happy to provide the help you need.`,
+      icon: 'tabler:chevrons-right',
+    },
+  ],
 };
 ---
 
 <Layout metadata={metadata}>
   <Fragment slot="header">
-    <Header
-      {...headerData}
-      actions={[
-        // {
-        //   variant: 'secondary',
-        //   text: 'Login',
-        //   href: '#',
-        // },
-        // {
-        //   variant: 'primary',
-        //   text: 'Sign Up',
-        //   href: '#',
-        // },
-      ]}
-      isSticky
-    />
+    <Header {...headerData} actions={[]} isSticky />
   </Fragment>
 
-  <!-- Hero2 Widget ******************* -->
-  <!-- "Lo que te falta -->
-  <!-- sube de nivel -->
-  <!-- Master -->
-  <Hero2
-    tagline="Con angular"
-    actions={[
-      { variant: 'primary', text: 'Ver detalles', href: '#features' },
-      // { variant: 'primary', target: '_blank', text: 'Explorar', href: '#features' },
-      // { text: 'Learn more', href: '#features' },
-    ]}
-    image={{
-      src: '~/assets/images/8.jpeg',
-      alt: '',
-    }}
-  >
-    <!-- <Fragment slot="title"> Para ser Fullstack</Fragment> -->
-    <Fragment slot="title"> De Backend a Fullstack </Fragment>
-
+  <Hero2 tagline={hero.tagline} actions={hero.actions} image={hero.image}>
+    <Fragment slot="title">{hero.title}</Fragment>
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
         Elevate your website creation process with <span class="font-semibold">AstroWind</span>'s SaaS solutions.</span
@@ -65,523 +188,8 @@ const metadata = {
     </Fragment>
   </Hero2>
 
-  <!-- Features Widget *************** -->
-  <!-- <Brands
-    title=""
-    subtitle=""
-    icons={[]}
-    images={[
-      {
-        src: '~/assets/images/angular_logo.png',
-        alt: 'Angular logo',
-      },
-      {
-        src: '~/assets/images/ts-lettermark-white.png',
-        alt: 'Typescri´pt logo',
-      },
-      {
-        src: '~/assets/images/logo-vite.svg',
-        alt: 'Vitelogo',
-      },
-      {
-        src: '~/assets/images/nodejsDark.svg',
-        alt: 'Node logo',
-      },
-    ]}
-  /> -->
-  <!-- WHY -->
-  <Features
-    id="features"
-    title="La opción inteligente"
-    subtitle=" "
-    columns={2}
-    items={[
-      {
-        title: 'Profesores con experiencia',
-        description:
-          'With intuitive customization, easily showcase portfolio pieces, case studies, project highlights, and relevant content. Ideal for creative professionals and businesses looking to highlight their expertise.',
-        icon: 'tabler:writing',
-      },
-      {
-        title: 'Orientado al trabajo',
-        description: `Using Astro 5.0 ensures fast loading and seamless rendering, enhancing browsing. The code follows best practices, improving user experience, SEO, and reducing bounce rates.`,
-        icon: 'tabler:rocket',
-      },
-      {
-        title: 'No cobramos matrícula',
-        description:
-          'Offers a powerful combination that enhances both the development process and the end-user experience. Also, allows to build dynamic and visually stunning websites with optimized performance.',
-        icon: 'tabler:layers-union',
-      },
-      {
-        title: 'No hacemos Pokedex',
-        description: `Easily customize AstroWind to harmonize with the unique branding and identity of your venture. AstroWind's versatile design adapts to suit your needs.`,
-        icon: 'tabler:artboard',
-      },
-      {
-        title: 'Intensivo de verdad',
-        description: `Landing pages are strategically designed to captivate visitors and prompt specific actions. Additionally, the blog creation feature empowers sharing insights, engaging the audience.`,
-        icon: 'tabler:podium',
-      },
-
-      {
-        title: 'Comunidad de Apoyo',
-        description: `Follows SEO best practices with clean code, semantic HTML markup, and fast loading, enhancing search engine rankings. AstroWind's SEO structure ensures visibility to potential customers and clients.`,
-        icon: 'tabler:eyeglass',
-      },
-    ]}
-  />
-  <!--  MALLA -->
-  <!-- <Content
-    id="porfolio"
-    title="Malla curricular"
-    subtitle="Sabemos lo que hacemos, revisa y compara."
-    isReversed
-    items={[
-      {
-        title: 'Description:',
-        description:
-          'Developed a comprehensive brand identity for a tech startup, Tech Innovators, specializing in disruptive innovations. The goal was to convey a modern yet approachable image that resonated with both corporate clients and tech enthusiasts.',
-      },
-      {
-        title: 'Role:',
-        description:
-          'Led the entire branding process from concept to execution. Created a dynamic logo that symbolized innovation, selected a vibrant color palette, and I designed corporate stationery, website graphics, and social media assets.',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1658248165252-71e116af1b34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=928&q=80',
-      alt: 'Tech Design Image',
-    }}
-    callToAction={{
-      target: '_blank',
-      text: 'Go to the project',
-      icon: 'tabler:chevron-right',
-      href: '#',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Project 1: <br /><span class="text-2xl">Brand identity for tech innovators</span>
-      </h3>
-    </Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-  <Content
-    isReversed
-    isAfterContent={true}
-    items={[
-      {
-        title: 'Description:',
-        description:
-          'Designed a captivating event poster for an art and music festival, "ArtWave Fusion," aiming to showcase the synergy between visual art and music genres.',
-      },
-      {
-        title: 'Role:',
-        description: `Translated the festival's creative theme into a visually striking poster. Used bold typography, vibrant colors, and abstract elements to depict the fusion of art and music. Ensured the design captured the festival's vibrant atmosphere.`,
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1619983081563-430f63602796?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-      alt: 'Art and Music Poster Image',
-    }}
-    callToAction={{
-      target: '_blank',
-      text: 'Go to the project',
-      icon: 'tabler:chevron-right',
-      href: '#',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Project 2: <br /><span class="text-2xl">Event poster for art & music festival</span>
-      </h3>
-    </Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content> -->
-  <!-- Content Widget **************** -->
-
-  <Content
-    title="Módulos"
-    subtitle="Discover how AstroWind's versatile template serves as the ideal solution for various use cases, providing tailored solutions to drive success."
-    items={[
-      {
-        title: '¿Que vas a aprender?',
-        description: `Comprende como fue pensando Angular y como utilizar las herramientas que ofrece`,
-      },
-      {
-        title: 'Contenido',
-        description: `
-         <ul class="text-slate-400 ml-4 list-disc">
-          <li> Browsers</li>
-          <li> HTML Semántico</li>
-          <li> Animaciones</li>
-          <li> Animaciones</li>
-          <li> I/O</li>
-          <li> Monitoreo y Analytics</li>
-          <li> Navegación</li>
-          <li> State Management</li>
-          <li> Seguridad</li>
-          <li> UI</li>
-        </ul>
-        `,
-      },
-    ]}
-    image={{
-      src: '~/assets/images/11.jpeg',
-      alt: 'Startup Image',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        UI Maquetación <br /><span class="text-2xl"></span>
-      </h3>
-    </Fragment>
-  </Content>
-  <Content
-    isAfterContent={true}
-    items={[
-      {
-        title: '¿Que vas a aprender?',
-        description: `Your portfolio is your masterpiece, and AstroWind is your canvas. Whether you're a designer, photographer, artist, or any other creative professional, AstroWind empowers you to showcase your work with elegance and sophistication. Tailored to highlight your creative projects, AstroWind's templates offer a visually immersive experience that lets your portfolio shine.`,
-      },
-      {
-        title: 'Contenido',
-        description: `
-         <ul class="text-slate-400 ml-4 list-disc">
-          <li> HTML</li>
-          <li> Autorización</li>
-          <li> Logica de Negocio</li>
-          <li> I/O</li>
-          <li> Monitoreo y Analytics</li>
-          <li> Navegación</li>
-          <li> State Management</li>
-          <li> Seguridad</li>
-          <li> UI</li>
-        </ul>
-        `,
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Portfolio Image',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Angular Profesional <br /><span class="text-2xl"></span>
-      </h3>
-    </Fragment>
-  </Content>
-  <Content
-    isAfterContent={true}
-    items={[
-      {
-        title: '¿Que vas a aprender?',
-        description: 'Identifica, gestiona y diseña las capas de una aplicación frontend.',
-      },
-      {
-        title: 'Contenido',
-        description: `
-         <ul class="text-slate-400 ml-4 list-disc">
-          <li> Autenticación</li>
-          <li> Autorización</li>
-          <li> Logica de Negocio</li>
-          <li> I/O</li>
-          <li> Monitoreo y Analytics</li>
-          <li> Navegación</li>
-          <li> State Management</li>
-          <li> Seguridad</li>
-          <li> UI</li>
-        </ul>
-        `,
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Portfolio Image',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Arquitectura Angular I<br /><span class="text-2xl"></span>
-      </h3>
-    </Fragment>
-  </Content>
-
-  <Content
-    isAfterContent={true}
-    items={[
-      {
-        title: '¿Que vas a aprender?',
-        description: `Your portfolio is your masterpiece, and AstroWind is your canvas. Whether you're a designer, photographer, artist, or any other creative professional, AstroWind empowers you to showcase your work with elegance and sophistication. Tailored to highlight your creative projects, AstroWind's templates offer a visually immersive experience that lets your portfolio shine.`,
-      },
-      {
-        title: 'Contenido',
-        description: `
-         <ul class="text-slate-400 ml-4 list-disc">
-          <li> Autenticación</li>
-          <li> Autorización</li>
-          <li> Logica de Negocio</li>
-          <li> I/O</li>
-          <li> Monitoreo y Analytics</li>
-          <li> Navegación</li>
-          <li> State Management</li>
-          <li> Seguridad</li>
-          <li> UI</li>
-        </ul>
-        `,
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Portfolio Image',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Arquitectura Angular II <br /><span class="text-2xl"></span>
-      </h3>
-    </Fragment>
-  </Content>
-  <Content
-    isAfterContent={false}
-    items={[
-      {
-        title: '¿Que vas a aprender?',
-        description:
-          'Are you a startup with big dreams? AstroWind propels your success. Our template forges a seamless online presence, attracting investors and customers from day one. Astro 5.0 and Tailwind CSS ensure striking, responsive sites, leaving lasting impressions. Countless startups leverage AstroWind to kickstart their journey and resonate with audiences.',
-      },
-      {
-        title: 'Contenido',
-        description: `
-         <ul class="text-slate-400 ml-4 list-disc">
-          <li> Autenticación</li>
-          <li> Autorización</li>
-          <li> Logica de Negocio</li>
-          <li> I/O</li>
-          <li> Monitoreo y Analytics</li>
-          <li> Navegación</li>
-          <li> State Management</li>
-          <li> Seguridad</li>
-          <li> UI</li>
-        </ul>
-        `,
-      },
-    ]}
-    image={{
-      src: '~/assets/images/10.jpeg',
-      alt: '',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Testing <br /><span class="text-2xl"> </span>
-      </h3>
-    </Fragment>
-  </Content>
-
-  <Content
-    isAfterContent={false}
-    items={[
-      {
-        title: '¿Que vas a aprender?',
-        description:
-          'Are you a startup with big dreams? AstroWind propels your success. Our template forges a seamless online presence, attracting investors and customers from day one. Astro 5.0 and Tailwind CSS ensure striking, responsive sites, leaving lasting impressions. Countless startups leverage AstroWind to kickstart their journey and resonate with audiences.',
-      },
-      {
-        title: 'Contenido',
-        description: `
-         <ul class="text-slate-400 ml-4 list-disc">
-          <li> Autenticación</li>
-          <li> Autorización</li>
-          <li> Logica de Negocio</li>
-          <li> I/O</li>
-          <li> Monitoreo y Analytics</li>
-          <li> Navegación</li>
-          <li> State Management</li>
-          <li> Seguridad</li>
-          <li> UI</li>
-        </ul>
-        `,
-      },
-    ]}
-    image={{
-      src: '~/assets/images/10.jpeg',
-      alt: '',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Actualizacion: Nuevo Angular v19 <br /><span class="text-2xl"></span>
-      </h3>
-    </Fragment>
-  </Content>
-  <Content
-    items={[
-      {
-        title: 'Description:',
-        description: `For small businesses, a well-crafted website can be a game-changer. AstroWind empowers small businesses to not only establish a credible online presence but also convert visitors into loyal customers. The template's thoughtful design and optimization features ensure that your website doesn't just attract attention but also guides visitors through a seamless journey, ultimately leading to conversions.`,
-      },
-      {
-        title: 'Benefits:',
-        description: `Present your small business with a professional and polished website that instills confidence and trust among visitors. <br /> Strategically placed CTAs, user-friendly forms, and optimized layouts work together to drive user engagement and conversions. <br /> Ensure a smooth browsing experience, reducing bounce rates and encouraging interaction.`,
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1514621166532-aa7eb1a3a2f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-      alt: 'Small Business Image',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Optimizacion <br /><span class="text-2xl"></span>
-      </h3>
-    </Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Pricing Widget ******************* -->
-
-  <Pricing
-    title="Precios"
-    prices={[
-      {
-        title: 'Flexible',
-        subtitle: 'Paso a paso',
-        price: '299.000',
-        period: '/ por módulo',
-        callToAction: {
-          target: '_blank',
-          text: 'Comprar',
-          href: '#',
-        },
-        hasRibbon: true,
-        ribbonTitle: 'popular',
-      },
-      {
-        title: 'Full',
-        // title: 'PR
-        // O',
-        subtitle: 'Programa completo',
-        price: `2.199.000`,
-        period: '/ 8 modulos',
-        callToAction: {
-          target: '_blank',
-          text: 'Comprar',
-          href: '#',
-        },
-      },
-      // {
-      //   title: 'Team',
-      //   subtitle: 'Entre amigos',
-      //   price: '1.200.000',
-      //   period: '/ 3 personas',
-      //   callToAction: {
-      //     target: '_blank',
-      //     text: 'Inscribimos',
-      //     href: '#',
-      //   },
-      // },
-      // {
-      //   title: 'Empresas',
-      //   subtitle: 'Capacitaciones personalizadas',
-      //   // price: 'A convenir',
-      //   period: ' ',
-      //   callToAction: {
-      //     target: '_blank',
-      //     text: 'Solicitar',
-      //     href: '#',
-      //   },
-      // },
-    ]}
-  />
-
-  <!-- FAQs Widget ******************* -->
-
-  <FAQs
-    title="Preguntas Comunes"
-    items={[
-      {
-        title: '¿ Cuando empieza ?',
-        description:
-          'Yes, AstroWind is designed to be compatible with the latest versions of both Astro and Tailwind CSS. This ensures that you can harness the full capabilities of these technologies while benefiting from the features offered by AstroWind.',
-        icon: 'tabler:chevrons-right',
-      },
-      {
-        title: '¿ Quién me va a enseñar?',
-        description: `Certainly! AstroWind is versatile and can be used for a wide range of projects, including both personal and commercial endeavors. Whether you're building a professional portfolio, launching a startup, or creating a marketing website, AstroWind has you covered.`,
-        icon: 'tabler:chevrons-right',
-      },
-      {
-        title: '¿ Cuáles son los horarios?',
-        description:
-          'While some familiarity with HTML, CSS, and web development concepts is helpful, the user-friendly interface and customization options allow those with limited coding experience to create impressive websites. For more advanced users, AstroWind offers extensive customization capabilities.',
-        icon: 'tabler:chevrons-right',
-      },
-      {
-        title: '¿Cuales son los medios de pago?',
-        description: `Absolutely, our dedicated customer support team is here to assist you with any questions or challenges you may encounter. Feel free to reach out to us through our support channels, and we'll be happy to provide the help you need.`,
-        icon: 'tabler:chevrons-right',
-      },
-      {
-        title: '¿Cual es la modalidad?',
-        description: `Absolutely, our dedicated customer support team is here to assist you with any questions or challenges you may encounter. Feel free to reach out to us through our support channels, and we'll be happy to provide the help you need.`,
-        icon: 'tabler:chevrons-right',
-      },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </FAQs>
-
-  <!-- Steps2 Widget ****************** -->
-
-  <!-- <Steps2
-    title="Reach out to us"
-    subtitle="Have questions? Feel free to contact us using the form below. We're here to help!"
-    callToAction={{
-      text: 'Contact us',
-      href: '/',
-    }}
-    items={[
-      {
-        title: 'Email us',
-        description: 'contact@support.com',
-        icon: 'tabler:mail',
-      },
-      {
-        title: 'Call us',
-        description: '+1 (234) 567-890',
-        icon: 'tabler:headset',
-      },
-      {
-        title: 'Follow us',
-        description: '@example',
-        icon: 'tabler:brand-twitter',
-      },
-    ]}
-  /> -->
-
-  <!-- BlogLatestPost Widget **************** -->
-
-  <!-- <BlogLatestPosts
-    id="blog"
-    title="Puedes aprender por tu cuenta"
-    information={`Explore our collection of articles, guides, and tutorials on web development, design trends, and using AstroWind effectively for your projects.`}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </BlogLatestPosts> -->
+  <Features id={why.id} title={why.title} subtitle={why.subtitle} columns={why.columns} items={why.items} />
+  <Content title={details.title} subtitle={details.subtitle} items={details.items} image={details.image} />
+  <Pricing title={pricing.title} prices={pricing.prices} />
+  <FAQs title={faq.title} items={faq.items} />
 </Layout>

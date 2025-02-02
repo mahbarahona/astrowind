@@ -1,5 +1,5 @@
 site:
-  name: Aprende Angular
+  name: UX Coder
   site: 'https://astrowind.vercel.app'
   base: '/'
   trailingSlash: false
@@ -9,14 +9,14 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: Aprende Angular
-    template: '%s — Aprende Angular'
+    default: UX Coder
+    template: '%s — UX Coder'
   description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: Aprende Angular
+    site_name: UX Coder
     images:
       - url: '~/assets/images/default.png'
         width: 1200
